@@ -1,6 +1,7 @@
 import { Duration, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as apigw from 'aws-cdk-lib/aws-apigateway';
 // import * as sns from 'aws-cdk-lib/aws-sns';
 // import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -23,5 +24,11 @@ export class CdkWorkshopStack extends Stack {
       code: lambda.Code.fromAsset('lambda'), // code loaded from lambda
       handler: 'hello.handler' // file is "hello", function is "handler"
     });
+
+    // defines an API Gateway REST API resource backed by our "hello" function.
+    new apigw.LambdaRestApi(this, 'Endpoint', {
+      handler: hello
+    });
+
   }
 }

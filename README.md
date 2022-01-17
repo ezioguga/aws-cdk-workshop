@@ -20,3 +20,4 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * To synthesize a CDK app, use the `cdk synth` command
 * You can use the `cdk bootstrap` command to install the bootstrap stack into an environment
 * Use  `cdk deploy` to deploy a CDK app
+* We can speed up that deployment time with `cdk deploy --hotswap`
